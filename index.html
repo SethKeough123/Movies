@@ -2,27 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Embed Movie Site Safely</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-      display: block;
-    }
-  </style>
+  <title>Movie Search</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <iframe 
-    src="https://ww20.0123movie.net/"
-    allowfullscreen
-    sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock">
-  </iframe>
+  <header>
+    <img src="logo.png" alt="Logo" id="logo" onclick="window.location.href='index.html'">
+    <h1>Movie Finder</h1>
+  </header>
+
+  <main>
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search for a movie..." required>
+      <button type="submit">Search</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
