@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo" id="logo" onclick="window.location.href='index.html'">
+    <h1>Search Results</h1>
+  </header>
+
+  <main id="resultsContainer">
+    <!-- Search results will go here -->
+  </main>
+
+  <script>
+    const queryString = new URLSearchParams(window.location.search);
+    const searchTerm = queryString.get('q');
+
+    const resultsContainer = document.getElementById('resultsContainer');
+    if (searchTerm) {
+      resultsContainer.innerHTML = `
+        <h2>Results for "${searchTerm}"</h2>
+        <ul>
+          <li><a href="https://www.imdb.com/find?q=${encodeURIComponent(searchTerm)}" target="_blank">Search on IMDb</a></li>
+          <li><a href="https://www.justwatch.com/us/search?q=${encodeURIComponent(searchTerm)}" target="_blank">Search on JustWatch</a></li>
+          <li><a href="https://www.rottentomatoes.com/search?search=${encodeURIComponent(searchTerm)}" target="_blank">Search on Rotten Tomatoes</a></li>
+        </ul>
+      `;
+    } else {
+      resultsContainer.innerHTML = `<p>No search term provided.</p>`;
+    }
+  </script>
+</body>
+</html>
